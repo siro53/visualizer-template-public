@@ -563,6 +563,10 @@ pub fn vis(input: &Input, output: &Output, turn: usize) -> VisRet {
                     .set("x", (j * W + W / 2) as i32)
                     .set("y", (i * H + H / 2) as i32)
                     .set("fill", "black")
+                    .set(
+                        "font-weight",
+                        if ch.is_uppercase() { "bold" } else { "normal" },
+                    )
                     .add(svg::node::Text::new(ch.to_string()));
                 doc = doc.add(tx);
             }
